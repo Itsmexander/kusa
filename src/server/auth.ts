@@ -5,7 +5,7 @@ import {
   type DefaultSession,
   type NextAuthOptions,
 } from "next-auth";
-import DiscordProvider from "next-auth/providers/discord";
+import CredentialsProvider from "next-auth/providers/credentials";
 
 import { env } from "@/env.mjs";
 import { db } from "@/server/db";
@@ -37,21 +37,51 @@ declare module "next-auth" {
  * @see https://next-auth.js.org/configuration/options
  */
 export const authOptions: NextAuthOptions = {
+  pages: {
+    signIn: "/sign-in",
+  },
   callbacks: {
     session: ({ session, user }) => ({
       ...session,
-      user: {
-        ...session.user,
-        id: user.id,
-      },
     }),
   },
-  adapter: PrismaAdapter(db),
   providers: [
-    DiscordProvider({
-      clientId: env.DISCORD_CLIENT_ID,
-      clientSecret: env.DISCORD_CLIENT_SECRET,
+    CredentialsProvider({
+      name: "KUSD",
+      credentials: {
+        email: {
+          label: "Email",
+          type: "email",
+          placeholder: "email",
+        },
+        password: {
+          label: "Password",
+          type: "password",
+          placeholder: "password",
+        },
+      },
+      async authorize(credentials, req) {
+        try {
+          console.log(credentials);
+
+          const user = {
+            id: "1",
+            name: "test",
+            email: "",
+          };
+
+          return user;
+        } catch (error: any) {
+          console.log(error.response.data.message);
+
+          throw new Error(error.response.data.message || "มีบางอย่างผิดพลาด");
+        }
+      },
     }),
+    // DiscordProvider({
+    //   clientId: env.DISCORD_CLIENT_ID,
+    //   clientSecret: env.DISCORD_CLIENT_SECRET,
+    // }),
     /**
      * ...add more providers here.
      *
