@@ -103,24 +103,8 @@ const AntLayout: NextPage<Props> = ({ children }) => {
                 <div className=''>
 
                 </div>
-                <Breadcrumb
-                    items={[
-                        {
-                            title: 'Home',
-                        },
-                        {
-                            title: <a href="">Application Center</a>,
-                        },
-                        {
-                            title: <a href="">Application List</a>,
-                        },
-                        {
-                            title: 'An Application',
-                        },
-                    ]}
-                />
                 <div className='truncate'>
-                    {children}asdfasdfasdf
+                    {children}
                 </div>
 
             </Layout>
