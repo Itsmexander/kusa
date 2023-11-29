@@ -10,16 +10,17 @@ const _1: NextPage<Props> = () => {
         <AntLayout>
             <Form className="m-5 grid">
                 <FormGenerator type={"text"} title={"ชื่อองค์กรกิจกรรมนิสิต"} />
+                <FormGenerator type={"text"} title={"ที่ออกหนังสือ"} />
+                <FormGenerator type={"date"} title={"วัน เดือน ปี (ที่ออกหนังสือ)"} />
                 <FormGenerator type={"text"} title={"โครงการ"} />
+                <FormGenerator type={"date"} title={"วัน เดือน ปี (ที่จัดโครงการ)"} />
                 <FormGenerator type={"text"} title={"สถานที่จัดโครงการ"} />
-                <FormGenerator type={"date"} title={"วัน เดือน ปี"} />
-                <FormGenerator type={"number"} title={"งบประมาณ"} placeholder={"จำนวนเงิน (บาท)"} />
-                <FormGenerator type={"number"} title={"จำนวนเงินเหลือเพื่อส่งคืน"} placeholder={"จำนวนเงิน (บาท)"} />
-                <FormGenerator type={"text"} title={"ปัญหาและอุปสรรค"} />
-                <FormGenerator type={"text"} title={"ข้อเสนอแนะ"} />
-                <FormGenerator type={"text"} title={"ผู้ยืมเงิน"} placeholder={"ประธานโครงการ"} />
+                <FormGenerator type={"number"} title={"จำนวนเงิน"} placeholder={"จำนวนเงิน (บาท)"} />
+                <FormGenerator type={"text"} title={"เหรัญญิก องค์กร"} />
                 <FormGenerator type={"text"} title={"ประธานองค์กร"} />
                 <FormGenerator type={"text"} title={"อาจารย์ที่ปรึกษาองค์กร"} />
+                <FormGenerator type={"text"} title={"ผู้ยืมเงิน"} />
+                <FormGenerator type={"upload"} title={"Upload"} file_type={".pdf"} />
             </Form>
         </AntLayout>
     )
