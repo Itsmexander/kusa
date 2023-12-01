@@ -74,38 +74,9 @@ const AntLayout: NextPage<Props> = ({ children }) => {
                 />
             </Sider>
             <Layout>
-                <HeaderComponent setCollapsed={(v) => setCollapsed(v)} collapsed={collapsed} />
-                {/* <Content
-                    style={{
-                        margin: '24px 16px',
-                        padding: 24,
-                        minHeight: 280,
-                        background: colorBgContainer,
-                    }}
-                >
-                    {children}
-                </Content> */}
-                {/* <div className=''>
-                    {children}
-                </div> */}
-                <Breadcrumb
-                    items={[
-                        {
-                            title: 'Home',
-                        },
-                        {
-                            title: <a href="">Application Center</a>,
-                        },
-                        {
-                            title: <a href="">Application List</a>,
-                        },
-                        {
-                            title: 'An Application',
-                        },
-                    ]}
-                />
+                <HeaderComponent setCollapsed={(v) => setCollapsed(v)} collapsed={collapsed} />        
                 <div className='truncate'>
-                    {children}asdfasdfasdf
+                    {children}
                 </div>
 
             </Layout>
