@@ -50,6 +50,12 @@ const AntLayout: NextPage<Props> = ({ children, title }) => {
                 },
             ]
         },
+        {
+            key: '/user-info',
+            icon: <PieChartIcon size={15} />,
+            label: 'User Info',
+            onClick: () => push('/user-info'),
+        },
     ]
 
     return (
