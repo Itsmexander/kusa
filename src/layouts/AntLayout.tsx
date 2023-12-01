@@ -12,9 +12,10 @@ const HeaderComponent = dynamic(() => import('@/components/HeaderComponent'), { 
 
 interface Props {
     children: React.ReactNode;
+    title?: string
 }
 
-const AntLayout: NextPage<Props> = ({ children }) => {
+const AntLayout: NextPage<Props> = ({ children, title }) => {
     const { push, pathname, asPath } = useRouter()
 
 
@@ -26,16 +27,9 @@ const AntLayout: NextPage<Props> = ({ children }) => {
     const Items: ItemType<MenuItemType>[] = [
         {
             key: '/',
-            icon: <HomeIcon size={15} />,
-            label: 'Home',
-            onClick: () => push('/'),
-        },
-        {
-            key: '/dashboard',
             icon: <PieChartIcon size={15} />,
             label: 'Dashboard',
-            onClick: () => push('/dashboard'),
-
+            onClick: () => push('/'),
         },
         {
             key: '3',
@@ -74,8 +68,9 @@ const AntLayout: NextPage<Props> = ({ children }) => {
                 />
             </Sider>
             <Layout>
-                <HeaderComponent setCollapsed={(v) => setCollapsed(v)} collapsed={collapsed} />        
-                <div className='truncate'>
+                <HeaderComponent setCollapsed={(v) => setCollapsed(v)} collapsed={collapsed} />
+                <div className='truncate p-3'>
+                    {title && <div className='text-xl mb-3'>{title}</div>}
                     {children}
                 </div>
 
