@@ -7,20 +7,25 @@ import { useRouter } from 'next/router'
 interface Props { }
 
 const Signin: NextPage<Props> = () => {
-    const [form] = Form.useForm()
+    // const [form] = Form.useForm()
     const { query } = useRouter();
 
     const onFinish = async (values: any) => {
-        if (!form.getFieldValue("email") || !form.getFieldValue("password")) {
-            Modal.error({
-                title: 'Error',
-                content: 'Please fill in all fields.',
-            })
-        }
+        // if (!form.getFieldValue("email") || !form.getFieldValue("password")) {
+        //     Modal.error({
+        //         title: 'Error',
+        //         content: 'Please fill in all fields.',
+        //     })
+        // }
 
+        // await signIn('credentials', {
+        //     email: form.getFieldValue("email"),
+        //     password: form.getFieldValue("password"),
+        //     callbackUrl: query.callbackUrl as string
+        // })
         await signIn('credentials', {
-            email: form.getFieldValue("email"),
-            password: form.getFieldValue("password"),
+            email: "test@ku.th",
+            password: "123",
             callbackUrl: query.callbackUrl as string
         })
     }
@@ -43,7 +48,13 @@ const Signin: NextPage<Props> = () => {
                     </div>
                 </div>
                 <div className='flex flex-col gap-3'>
-                    <div className="px-3.5 py-1 bg-primary rounded-lg shadow gap-2 inline-flex items-center justify-center">
+                    <button onClick={async () => {
+                        await signIn('credentials', {
+                            email: "test@ku.th",
+                            password: "123",
+                            callbackUrl: query.callbackUrl as string
+                        })
+                    }} className="px-3.5 py-1 bg-primary rounded-lg shadow gap-2 inline-flex items-center justify-center">
                         <div className="items-center text-white text-xl gap-2 font-bold font-['DB Ozone X'] leading-snug flex">
                             <div className='p-1 h-fit bg-white rounded-full'>
                                 <img className="w-4 h-4 " src="/assets/KULogo.svg" />
@@ -52,7 +63,7 @@ const Signin: NextPage<Props> = () => {
                                 เข้าสู่ระบบด้วย KU All Login
                             </div>
                         </div>
-                    </div>
+                    </button>
                     <div className="w-full flex items-center gap-5">
                         <div className="w-full h-[1px] bg-black"></div>
                         <div className='flex-1'>
