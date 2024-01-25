@@ -1,9 +1,98 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100;200;300;400;500;600;700;800;900&display=swap');
+/* @font-face {
+  font-family: "DB Ozone X";
+  src:
+    url("/fonts/db_ozone_x_v3.2-webfont.woff2") format("woff2"),
+    url("/fonts/db_ozone_x_bd_v3.2-webfont.woff2") format("woff"),
+    url("/fonts/db_ozone_x_med_v3.2-webfont.woff2") format("woff");
+} */
+/* @font-face {
+  font-family: "DB Ozone X";
+  src: url('/fonts/DB Ozone X v3.2.ttf') format("truetype");
+} 
+@font-face {
+    font-family: "DB Ozone X";
+    src: url('/fonts/DB Ozone X UlLi v3.2.ttf') format("truetype");
+}
+@font-face {
+    font-family: "DB Ozone X";
+    src: url('/fonts/DB Ozone X UlLi It v3.2.ttf') format("truetype");
+}
+@font-face {
+    font-family: "DB Ozone X";
+    src: url('/fonts/DB Ozone X Med v3.2.ttf') format("truetype");
+}
+@font-face {
+    font-family: "DB Ozone X";
+    src: url('/fonts/DB Ozone X Med It v3.2.ttf') format("truetype");
+}
+@font-face {
+    font-family: "DB Ozone X";
+    src: url('/fonts/DB Ozone X Li v3.2.ttf') format("truetype");
+}
+@font-face {
+    font-family: "DB Ozone X";
+    src: url('/fonts/DB Ozone X Li It v3.2.ttf') format("truetype");
+}
+@font-face {
+    font-family: "DB Ozone X";
+    src: url('/fonts/DB Ozone X It v3.2.ttf') format("truetype");
+}
+@font-face {
+    font-family: "DB Ozone X";
+    src: url('/fonts/DB Ozone X Bd v3.2.ttf') format("truetype");
+}
+@font-face {
+    font-family: "DB Ozone X";
+    src: url('/fonts/DB Ozone X Bd It v3.2.ttf') format("truetype");
+} */
+@font-face {
+    font-family: "DB Ozone X";
+    src: url("/fonts/DB Ozone X UlLi v3.2.ttf");
+    font-weight: 200;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "DB Ozone X";
+    src: url("/fonts/DB Ozone X Li v3.2.ttf");
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "DB Ozone X";
+    src: url("/fonts/DB Ozone X v3.2.ttf");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "DB Ozone X";
+    src: url("/fonts/DB Ozone X Med v3.2.ttf");
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "DB Ozone X";
+    src: url("/fonts/DB Ozone X Bd v3.2.ttf");
+    font-weight: bold;
+    font-style: normal;
+  }
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 * {
-    font-family: 'Noto Sans Thai', sans-serif;
+  font-family: "DB Ozone X";
+  font-size: 1.2rem;
+  /* line-height: -1; */
 }
+
+/* .text-7xl {
+  font-size: 4.5rem;
+  line-height: 0.5;
+} */
+
+.bu
