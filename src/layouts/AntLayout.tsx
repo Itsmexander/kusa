@@ -1,30 +1,18 @@
-// import HeaderComponent from '@/components/HeaderComponent';
-import React, { useState } from 'react';
-import { Layout, Menu, Button, theme, Breadcrumb, Avatar, Dropdown } from 'antd';
+import React from 'react';
+import { Layout } from 'antd';
 import { NextPage } from 'next';
-import { HomeIcon, LogOutIcon, PaperclipIcon, PieChartIcon, SearchIcon, SendIcon } from 'lucide-react';
-import { ItemType, MenuItemType } from 'antd/es/menu/hooks/useItems';
+import { HomeIcon, PaperclipIcon, PieChartIcon, SearchIcon } from 'lucide-react';
 import { useRouter } from 'next/router';
-import dynamic from 'next/dynamic';
-import { signOut, useSession } from 'next-auth/react';
-const { Header, Sider, Content } = Layout;
-
-const HeaderComponent = dynamic(() => import('@/components/HeaderComponent'), { ssr: false })
+import HeaderComponent from '@/components/HeaderComponent';
 
 interface Props {
     children: React.ReactNode;
 }
 
 const AntLayout: NextPage<Props> = ({ children }) => {
-    const { push, pathname, asPath } = useRouter()
-    const { data: session } = useSession();
+    const { push, pathname } = useRouter()
 
-    const [collapsed, setCollapsed] = useState(false);
-    const {
-        token: { colorBgContainer },
-    } = theme.useToken();
-
-    const items = [
+    const items: MenuInterface[] = [
         {
             key: '/',
             icon: <HomeIcon size={15} />,
@@ -78,45 +66,7 @@ const AntLayout: NextPage<Props> = ({ children }) => {
                         </a>)}
                 </div>
             </div>
-            <div className='w-[100%] bg-primary text-white px-3 py-3 fixed top-0 z-10'>
-                <div className='ml-[13rem] flex flex-row justify-between'>
-                    <div>{itemSelected?.label}</div>
-                    <Dropdown
-                        menu={{
-                            items: [
-                                {
-                                    key: "1",
-                                    icon: <LogOutIcon />,
-                                    label: (
-                                        <div
-                                            onClick={() =>
-                                                signOut({
-                                                    callbackUrl: "/",
-                                                })
-                                            }
-                                        >
-                                            Sign Out
-                                        </div>
-                                    ),
-                                    danger: true,
-                                },
-                            ],
-                        }}
-                    >
-                        <a
-                            onClick={(e) => e.preventDefault()}
-                            className="flex items-center gap-2"
-                        >
-                            <Avatar
-                                shape="circle"
-                                size="default"
-                                src={session?.user.image}
-                                className="cursor-pointer"
-                            />
-                        </a>
-                    </Dropdown>
-                </div>
-            </div>
+           <HeaderComponent itemSelected={itemSelected as MenuInterface} />
             <div className='flex flex-col w-full'>
                 <div className='p-2 ml-[13rem] mt-[3.5rem]'>{children}</div>
             </div>

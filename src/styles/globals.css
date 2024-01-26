@@ -91,7 +91,6 @@
   /* line-height: -1; */
 }
 
-/* .text-7xl {
-  font-size: 4.5rem;
-  line-height: 0.5;
-} */
+#nprogress .bar {
+    background: #B2BB1C !important;
+    }

@@ -1,33 +1,19 @@
-import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
-import { Avatar, Button, Dropdown, theme } from 'antd'
-import { Header } from 'antd/es/layout/layout'
+import { Avatar, Dropdown } from 'antd'
 import { LogOutIcon } from 'lucide-react'
 import { NextPage } from 'next'
 import { signOut, useSession } from 'next-auth/react'
 
 interface Props {
-    collapsed: boolean
-    setCollapsed: (collapsed: boolean) => void
+    itemSelected: MenuInterface
 }
 
-const HeaderComponent: NextPage<Props> = ({ setCollapsed, collapsed }) => {
+const HeaderComponent: NextPage<Props> = ({ itemSelected }) => {
     const { data: session } = useSession();
-    const {
-        token: { colorBgContainer },
-    } = theme.useToken();
+
     return (
-        <Header style={{ padding: 0, background: colorBgContainer }} className='flex justify-between items-center'>
-            <Button
-                type="text"
-                icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-                onClick={() => setCollapsed(!collapsed)}
-                style={{
-                    fontSize: '16px',
-                    width: 64,
-                    height: 64,
-                }}
-            />
-            <div className='flex mr-5'>
+        <div className='w-[100%] bg-primary text-white px-3 py-3 fixed top-0 z-10'>
+            <div className='ml-[13rem] flex flex-row justify-between'>
+                <div className='font-bold'>{itemSelected?.label}</div>
                 <Dropdown
                     menu={{
                         items: [
@@ -60,11 +46,10 @@ const HeaderComponent: NextPage<Props> = ({ setCollapsed, collapsed }) => {
                             src={session?.user.image}
                             className="cursor-pointer"
                         />
-                        {session?.user.name}
                     </a>
                 </Dropdown>
             </div>
-        </Header>
+        </div>
     )
 }
 
