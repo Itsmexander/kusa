@@ -36,7 +36,8 @@ const MyApp: AppType<{ session: Session | null }> = ({
                 theme={{
                     token: {
                         colorPrimary: "#006C67",
-                        borderRadius: 0,
+                        // borderRadius: 0,
+                        colorBorder: "#006C67",
                     },
                     algorithm: theme.defaultAlgorithm,
                 }}

@@ -13,7 +13,7 @@ const HeaderComponent: NextPage<Props> = ({ itemSelected }) => {
     return (
         <div className='w-[100%] bg-primary text-white px-3 py-3 fixed top-0 z-10'>
             <div className='ml-[13rem] flex flex-row justify-between'>
-                <div className='font-bold'>{itemSelected?.label}</div>
+                <div className='font-bold text-2xl'>{itemSelected?.label}</div>
                 <Dropdown
                     menu={{
                         items: [

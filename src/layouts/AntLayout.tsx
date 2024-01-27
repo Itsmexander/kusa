@@ -50,7 +50,7 @@ const AntLayout: NextPage<Props> = ({ children }) => {
                 </div>
                 <div className='flex flex-col gap-2'>
                     {items.map((item, id) => isCurrentPage(item.key) ? (
-                        <a key={id} className='bg-primary hover:text-white text-white rounded-lg flex justify-start items-center px-2 gap-2'>
+                        <a key={id} className='bg-primary text-2xl hover:text-white text-white rounded-lg flex justify-start items-center px-2 gap-2'>
                             {item.icon}
                             <div>{item.label}</div>
                         </a>
@@ -60,15 +60,27 @@ const AntLayout: NextPage<Props> = ({ children }) => {
                                 e.preventDefault()
                                 push(item.key)
                             }}
-                            className='bg-white border-primary hover:text-primary border border-inn text-primary rounded-lg flex justify-start items-center px-2 gap-2'>
+                            className='bg-white border-primary text-2xl hover:text-primary border border-inn text-primary rounded-lg flex justify-start items-center px-2 gap-2'>
                             {item.icon}
                             <div>{item.label}</div>
                         </a>)}
                 </div>
             </div>
-           <HeaderComponent itemSelected={itemSelected as MenuInterface} />
-            <div className='flex flex-col w-full'>
-                <div className='p-2 ml-[13rem] mt-[3.5rem]'>{children}</div>
+            <HeaderComponent itemSelected={itemSelected as MenuInterface} />
+            <div className='flex flex-col w-full ml-[13rem] mt-[3.5rem]'>
+                <div className='p-3 text-2xl'>
+                    {children}
+                </div>
+                <div className='p-3 text-lg flex justify-between text-zinc-400 items-center'>
+                    <div className="font-normal">สงวนลิขสิทธิ์ © 2023 กองพัฒนานิสิต มหาวิทยาลัยเกษตรศาสตร์ </div>
+                    <div className='flex gap-2'>
+                        <div>นโยบายคุ้มครองข้อมูล</div>
+                        <div>●</div>
+                        <div>เว็บไซต์</div>
+                        <div>●</div>
+                        <div>ติดต่อเรา</div>
+                    </div>
+                </div>
             </div>
         </Layout>
     );

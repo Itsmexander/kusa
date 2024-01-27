@@ -87,10 +87,25 @@
 
 * {
   font-family: "DB Ozone X";
-  font-size: 1.2rem;
-  /* line-height: -1; */
+  /* font-size: 1.2rem; */
 }
 
 #nprogress .bar {
-    background: #B2BB1C !important;
-    }
+  background: #b2bb1c !important;
+}
+
+.ant-table-thead .ant-table-cell {
+  @apply bg-primary text-white text-lg !important;
+}
+
+.ant-table-cell {
+  @apply text-base !important;
+}
+
+.ant-table {
+  @apply border-primary border rounded-xl overflow-hidden !important;
+}
+
+.ant-select-selector {
+  @apply bg-gray-200 text-zinc-500 text-[1.2rem] !important;
+}
