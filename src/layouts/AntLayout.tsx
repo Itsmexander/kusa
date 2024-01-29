@@ -1,7 +1,7 @@
 import React from 'react';
 import { Layout } from 'antd';
 import { NextPage } from 'next';
-import { HomeIcon, PaperclipIcon, PieChartIcon, SearchIcon } from 'lucide-react';
+import { AreaChartIcon, CalendarDaysIcon, HomeIcon, ListChecksIcon, NewspaperIcon, PaperclipIcon, PieChartIcon, SearchIcon, SendIcon } from 'lucide-react';
 import { useRouter } from 'next/router';
 import HeaderComponent from '@/components/HeaderComponent';
 
@@ -20,23 +20,47 @@ const AntLayout: NextPage<Props> = ({ children }) => {
             onClick: () => push('/'),
         },
         {
-            key: '/dashboard',
-            icon: <PieChartIcon size={15} />,
-            label: 'ภาพรวม',
-            onClick: () => push('/dashboard'),
+            key: '/news',
+            icon: <NewspaperIcon size={15} />,
+            label: 'ข่าวสาร',
+            onClick: () => push('/news'),
         },
         {
+            key: '/calendar',
+            icon: <CalendarDaysIcon size={15} />,
+            label: 'ปฏิทิน',
+            onClick: () => push('/calendar'),
+        },
+        {
+            key: '/my-project',
+            icon: <SendIcon size={15} />,
+            label: 'โครงการของฉัน',
+            onClick: () => push('/my-project'),
+        },
+        // {
+        //     key: '/dashboard',
+        //     icon: <PieChartIcon size={15} />,
+        //     label: 'ภาพรวม',
+        //     onClick: () => push('/dashboard'),
+        // },
+        {
             key: '/approve',
-            icon: <PaperclipIcon size={15} />,
+            icon: <ListChecksIcon size={15} />,
             label: 'อนุมัติโครงการ',
             onClick: () => push('/approve'),
         },
         {
-            key: '/budget',
-            icon: <SearchIcon size={15} />,
-            label: 'จัดสรรงบ',
-            onClick: () => push('/budget'),
-        }
+            key: '/statistics',
+            icon: <AreaChartIcon size={15} />,
+            label: 'สถิติ',
+            onClick: () => push('/statistics'),
+        },
+        // {
+        //     key: '/budget',
+        //     icon: <SearchIcon size={15} />,
+        //     label: 'จัดสรรงบ',
+        //     onClick: () => push('/budget'),
+        // }
     ]
 
     const itemSelected = items.find((item) => item.key === pathname) ?? { label: pathname }
