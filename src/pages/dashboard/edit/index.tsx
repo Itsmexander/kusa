@@ -139,8 +139,8 @@ export default function NextPage() {
                                         type="number"
                                         value={formData.amount}
                                         onChange={(e)=>{
-                                            setFormData((prev)=>({
-                                                ...prev,
+                                            setFormData(()=>({
+                                                ...formData,
                                                 amount : e.target.value
                                             }))
                                         }}
