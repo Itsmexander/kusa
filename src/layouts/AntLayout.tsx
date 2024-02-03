@@ -91,8 +91,8 @@ const AntLayout: NextPage<Props> = ({ children }) => {
                 </div>
             </div>
             <HeaderComponent itemSelected={itemSelected as MenuInterface} />
-            <div className='flex flex-col w-full ml-[13rem] mt-[3.5rem]'>
-                <div className='p-3 text-2xl'>
+            <div className='flex flex-col w-full ml-[13rem] mt-[3.5rem] overflow-hidden'>
+                <div className='p-3 text-2xl h-full'>
                     {children}
                 </div>
                 <div className='p-3 text-lg flex justify-between text-zinc-400 items-center'>
