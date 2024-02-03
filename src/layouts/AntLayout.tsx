@@ -19,12 +19,12 @@ const AntLayout: NextPage<Props> = ({ children }) => {
             label: 'หน้าแรก',
             onClick: () => push('/'),
         },
-        {
-            key: '/news',
-            icon: <NewspaperIcon size={15} />,
-            label: 'ข่าวสาร',
-            onClick: () => push('/news'),
-        },
+        // {
+        //     key: '/news',
+        //     icon: <NewspaperIcon size={15} />,
+        //     label: 'ข่าวสาร',
+        //     onClick: () => push('/news'),
+        // },
         {
             key: '/calendar',
             icon: <CalendarDaysIcon size={15} />,
@@ -49,12 +49,12 @@ const AntLayout: NextPage<Props> = ({ children }) => {
             label: 'อนุมัติโครงการ',
             onClick: () => push('/approve'),
         },
-        {
-            key: '/statistics',
-            icon: <AreaChartIcon size={15} />,
-            label: 'สถิติ',
-            onClick: () => push('/statistics'),
-        },
+        // {
+        //     key: '/statistics',
+        //     icon: <AreaChartIcon size={15} />,
+        //     label: 'สถิติ',
+        //     onClick: () => push('/statistics'),
+        // },
         // {
         //     key: '/budget',
         //     icon: <SearchIcon size={15} />,
