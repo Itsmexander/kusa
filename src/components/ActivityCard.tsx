@@ -20,7 +20,7 @@ const ActivityCard = (details: FakeActivityInterface) => {
   const e_month_name = thaiMonthNames[details.range.end.getMonth()];
 
   return (
-    <div className="flex h-32 w-full flex-row rounded-md border-2 border-primary">
+    <div className="flex h-32 w-full flex-row rounded-xl border-2 border-primary">
       <div className="flex h-full w-2/5 flex-col items-center justify-center overflow-hidden rounded-md bg-primary text-white">
         <p className="text-4xl font-bold">
           {details.range.start.getDate()}-{details.range.end.getDate()}

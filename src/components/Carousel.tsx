@@ -1,28 +1,35 @@
-import React from 'react';
-import { Carousel } from 'antd';
-
-const contentStyle: React.CSSProperties = {
-  height: '20rem',
-  color: '#fff',
-  lineHeight: '160px',
-  textAlign: 'center',
-  background: '#364d79',
-  borderRadius: 10,
-};
+import React from "react";
+import { Carousel } from "antd";
 
 const App: React.FC = () => (
-  <Carousel autoplay>
-    <div>
-      <h3 style={contentStyle}>1</h3>
+  <Carousel>
+    <div className="h-[22.2rem]">
+      <img
+        src="/assets/home-banner.svg"
+        className="h-full w-full rounded-xl bg-center bg-no-repeat object-cover"
+        alt=""
+      />
     </div>
-    <div>
-      <h3 style={contentStyle}>2</h3>
+    <div className="h-[22.2rem]">
+      <img
+        src="/assets/home-banner.svg"
+        className="h-full w-full rounded-xl bg-center bg-no-repeat object-cover"
+        alt=""
+      />
     </div>
-    <div>
-      <h3 style={contentStyle}>3</h3>
+    <div className="h-[22.2rem]">
+      <img
+        src="/assets/home-banner.svg"
+        className="h-full w-full rounded-xl bg-center bg-no-repeat object-cover"
+        alt=""
+      />
     </div>
-    <div>
-      <h3 style={contentStyle}>4</h3>
+    <div className="h-[22.2rem]">
+      <img
+        src="/assets/home-banner.svg"
+        className="h-full w-full rounded-xl bg-center bg-no-repeat object-cover"
+        alt=""
+      />
     </div>
   </Carousel>
 );
