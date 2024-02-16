@@ -55,7 +55,7 @@ const FakeUsers: FakeUserInterface[] = [
       announcement: {
         from: 'กองพัฒนานิสิต มหาวิทยาลัยเกษตรศาสตร์',
         date: new Date(2022, 10, 24),
-        content: 'dddddddddddwa dawwwwwwwwwwwwwwwwwwww waaaaaaaaaaaaaaaaaaad waaaaaaaaaaaaaaadddddddddddwa dawwwwwwwwwwwwwwwwwwww waaaaaaaaaaaaaaaaaaad waaaaaaaaaaaaaaadddddddddddwa dawwwwwwwwwwwwwwwwwwww waaaaaaaaaaaaaaaaaaad waaaaaaaaaaaaaaa',
+        content: 'ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff',
       }
     },
     {
