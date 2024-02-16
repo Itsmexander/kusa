@@ -1,7 +1,7 @@
 import React from 'react';
 import { Layout } from 'antd';
 import { NextPage } from 'next';
-import { AreaChartIcon, CalendarDaysIcon, HomeIcon, ListChecksIcon, NewspaperIcon, PaperclipIcon, PieChartIcon, SearchIcon, SendIcon } from 'lucide-react';
+import { AreaChartIcon, CalendarDaysIcon, HomeIcon, ListChecksIcon, NewspaperIcon, PaperclipIcon, PieChartIcon, SearchIcon, SendIcon, UserIcon } from 'lucide-react';
 import { useRouter } from 'next/router';
 import HeaderComponent from '@/components/HeaderComponent';
 
@@ -43,18 +43,30 @@ const AntLayout: NextPage<Props> = ({ children }) => {
         //     label: 'ภาพรวม',
         //     onClick: () => push('/dashboard'),
         // },
-        {
-            key: '/approve',
-            icon: <ListChecksIcon size={15} />,
-            label: 'อนุมัติโครงการ',
-            onClick: () => push('/approve'),
-        },
         // {
-        //     key: '/statistics',
-        //     icon: <AreaChartIcon size={15} />,
-        //     label: 'สถิติ',
-        //     onClick: () => push('/statistics'),
+        //     key: '/approve',
+        //     icon: <ListChecksIcon size={15} />,
+        //     label: 'อนุมัติโครงการ',
+        //     onClick: () => push('/approve'),
         // },
+        {
+            key: '/approve-project',
+            icon: <ListChecksIcon size={15} />,
+            label: 'โครงการที่ได้รับอนุมัติ',
+            onClick: () => push('/approve-project'),
+        },
+        {
+            key: '/profile',
+            icon: <UserIcon size={15} />,
+            label: 'หน้าโปรไฟล์',
+            onClick: () => push('/profile'),
+        },
+        {
+            key: '/statistics',
+            icon: <AreaChartIcon size={15} />,
+            label: 'สถิติ',
+            onClick: () => push('/statistics'),
+        },
         // {
         //     key: '/budget',
         //     icon: <SearchIcon size={15} />,
@@ -68,7 +80,7 @@ const AntLayout: NextPage<Props> = ({ children }) => {
 
     return (
         <Layout className='min-h-screen w-screen relative flex flex-row bg-bg-base'>
-            <div className='flex flex-col gap-3 bg-white w-[13rem] px-3 pt-5 fixed top-0 bottom-0 z-20'>
+            <div className='flex flex-col gap-3 bg-white w-[15rem] px-3 pt-5 fixed top-0 bottom-0 z-20'>
                 <div>
                     <img src="/assets/logo.svg" alt="" />
                 </div>
@@ -91,7 +103,7 @@ const AntLayout: NextPage<Props> = ({ children }) => {
                 </div>
             </div>
             <HeaderComponent itemSelected={itemSelected as MenuInterface} />
-            <div className='flex flex-col w-full ml-[13rem] mt-[3.5rem] overflow-hidden'>
+            <div className='flex flex-col w-full ml-[15rem] mt-[3.5rem] overflow-hidden'>
                 <div className='p-3 text-2xl h-full'>
                     {children}
                 </div>
