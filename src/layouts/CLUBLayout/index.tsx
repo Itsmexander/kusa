@@ -10,70 +10,42 @@ interface Props {
     children: React.ReactNode;
 }
 
-const AntLayout: NextPage<Props> = ({ children }) => {
+const prefix = "/CLUB"
+
+const CLUBLayout: NextPage<Props> = ({ children }) => {
     const { push, pathname } = useRouter()
 
     const items: MenuInterface[] = [
         {
-            key: '/',
+            key: prefix + '/',
             icon: <HomeIcon size={15} />,
             label: 'หน้าแรก',
             onClick: () => push('/'),
         },
-        // {
-        //     key: '/news',
-        //     icon: <NewspaperIcon size={15} />,
-        //     label: 'ข่าวสาร',
-        //     onClick: () => push('/news'),
-        // },
         {
-            key: '/calendar',
+            key: prefix + '/calendar',
             icon: <CalendarDaysIcon size={15} />,
             label: 'ปฏิทิน',
             onClick: () => push('/calendar'),
         },
         {
-            key: '/my-project',
+            key: prefix + '/my-project',
             icon: <SendIcon size={15} />,
             label: 'โครงการของฉัน',
             onClick: () => push('/my-project'),
         },
-        // {
-        //     key: '/dashboard',
-        //     icon: <PieChartIcon size={15} />,
-        //     label: 'ภาพรวม',
-        //     onClick: () => push('/dashboard'),
-        // },
-        // {
-        //     key: '/approve',
-        //     icon: <ListChecksIcon size={15} />,
-        //     label: 'อนุมัติโครงการ',
-        //     onClick: () => push('/approve'),
-        // },
         {
-            key: '/approve-project',
+            key: prefix + '/approve-project',
             icon: <ListChecksIcon size={15} />,
             label: 'โครงการที่ได้รับอนุมัติ',
             onClick: () => push('/approve-project'),
         },
         {
-            key: '/profile',
-            icon: <UserIcon size={15} />,
-            label: 'หน้าโปรไฟล์',
-            onClick: () => push('/profile'),
-        },
-        {
-            key: '/statistics',
+            key: prefix + '/statistics',
             icon: <AreaChartIcon size={15} />,
             label: 'สถิติ',
             onClick: () => push('/statistics'),
-        },
-        // {
-        //     key: '/budget',
-        //     icon: <SearchIcon size={15} />,
-        //     label: 'จัดสรรงบ',
-        //     onClick: () => push('/budget'),
-        // }
+        }
     ]
 
     const itemSelected = items.find((item) => item.key === pathname) ?? { label: pathname }
@@ -114,4 +86,4 @@ const AntLayout: NextPage<Props> = ({ children }) => {
     );
 }
 
-export default AntLayout;
+export default CLUBLayout;
