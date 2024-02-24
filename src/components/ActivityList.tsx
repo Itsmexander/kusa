@@ -36,10 +36,6 @@ const App = () => {
     }
   };
 
-  const onChangeExpansion = () => {
-    setExpansion(!expansion);
-  };
-
   return (
     <>
       <List>
@@ -72,7 +68,7 @@ const App = () => {
           type="primary"
           shape="round"
           className="w-2/6"
-          onClick={onChangeExpansion}
+          onClick={() => {}}
         >
           ทั้งหมด
         </Button>
