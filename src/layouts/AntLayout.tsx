@@ -32,7 +32,7 @@ const replaceSlugWithQuery = (pathname: string, query: ParsedUrlQuery) => {
 const AntLayout: NextPage<Props> = ({ children }) => {
   const { push, pathname } = useRouter();
   const router = useRouter();
-  console.log(router);
+  
   const items: MenuInterface[] = [
     {
       key: "/",
