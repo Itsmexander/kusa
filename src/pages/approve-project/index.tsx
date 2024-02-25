@@ -3,18 +3,13 @@ import React, { useEffect, useState } from 'react'
 
 import AntLayout from '@/layouts/AntLayout'
 import ProjectDetails from '@/interfaces/ProjectDetails'
-import formValues from '@/interfaces/formValues'
+import formValues from '@/interfaces/FormValues'
 
 import ProjectList from '@/components/ApproveProject/ProjectsList/ProjectList'
 import SearchHearder from '@/components/ApproveProject/SearchHeader'
 import PageSelecter from '@/components/ApproveProject/Pagination'
 
 export default function index() {
-  const [formValue, onSetFormValue] = useState({
-    name : '', 
-    date : '' 
-  })
-
   const [currentData,onSetData] = useState({
     data : [
       {
@@ -56,12 +51,13 @@ export default function index() {
 
   //handler call to server expected data at page one back also restate page to 1 
   const onSearchHandler = (formValue : formValues)=>{
+
     console.log(formValue)
     onSearchtoServer(formValue)
   }
   const onSearchtoServer = async (formValue : formValues)=>{
     console.log(formValue.date)
-    console.log(formValue.searchValue)
+    console.log(formValue.name)
 
     // two case handler fetch process wite date or just value 
     // api expect have parameters {formValue.name} and {formValue.date} return list of data 4 pieces seem better ui ****
@@ -119,10 +115,6 @@ export default function index() {
 
   //handler interact with pagination
   const onPageChangeHandler = (targetPage : number )=>{
-    // onSetData({
-    //   ...currentData ,
-    //   currentPage : targetPage
-    // })
     onPageChangeToServer(targetPage)
   }
 
@@ -190,7 +182,6 @@ export default function index() {
       totalPage : 9
     })
   },[])
-
 
   return (
     <AntLayout>
