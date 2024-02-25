@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Avatar, List, message } from "antd";
-import VirtualList from "rc-virtual-list";
 import { UserOutlined } from "@ant-design/icons";
 import FakeUserInterface from "public/home-fakes/FakeUserInterface";
 import FakeUsers from "public/home-fakes/FakeUsers";
+import { useRouter } from "next/router";
 
 const App: React.FC = () => {
   const [data, setData] = useState<FakeUserInterface[]>(FakeUsers);
+  const router = useRouter();
 
   return (
     <div>
@@ -23,8 +24,10 @@ const App: React.FC = () => {
             className="my-3 flex h-fit rounded-lg bg-[#F8F8F8]"
           >
             <div
-              className="flex h-32 w-5/6 flex-row gap-3 px-8"
-              onClick={() => console.log(item)}
+              className="flex h-[8rem] w-5/6 flex-row gap-3 overflow-hidden px-8 hover:cursor-pointer"
+              onClick={() => {
+                router.push(`/${item.email}`);
+              }}
             >
               <div className="flex justify-center">
                 {item.picture.large != "" ? (
@@ -41,7 +44,7 @@ const App: React.FC = () => {
                   />
                 )}
               </div>
-              <div className="... flex w-full flex-col gap-3 overflow-hidden overflow-ellipsis">
+              <div className="flex w-full flex-col gap-3 break-all">
                 <div>
                   <p className="text-2xl font-bold">{item.announcement.from}</p>
                   <p>{`วันที่ ${item.announcement.date.toLocaleDateString()}`}</p>
