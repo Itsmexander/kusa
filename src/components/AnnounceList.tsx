@@ -20,13 +20,13 @@ const App: React.FC = () => {
         dataSource={data}
         renderItem={(item) => (
           <List.Item
-            key={item.email}
+            key={item.uid}
             className="my-3 flex h-fit rounded-lg bg-[#F8F8F8]"
           >
             <div
               className="flex h-[8rem] w-5/6 flex-row gap-3 overflow-hidden px-8 hover:cursor-pointer"
               onClick={() => {
-                router.push(`/${item.email}`);
+                router.push(`/${item.uid}`);
               }}
             >
               <div className="flex justify-center">

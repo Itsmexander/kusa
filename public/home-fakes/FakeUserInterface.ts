@@ -1,4 +1,5 @@
 export default interface FakeUserInterface {
+    uid: string;
     email: string;
     gender: string;
     name: {

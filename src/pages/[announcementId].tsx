@@ -6,7 +6,6 @@ import FakeUserInterface from "public/home-fakes/FakeUserInterface";
 import FakeUsers from "public/home-fakes/FakeUsers";
 import dayjs from "dayjs";
 import "dayjs/locale/th";
-import Image from "next/image";
 
 dayjs.locale("th");
 
@@ -16,7 +15,7 @@ export default function AnnouncementDetail() {
 
   function findUser() {
     const user = FakeUsers.find(
-      (user: FakeUserInterface) => user.email === query.announcementId,
+      (user: FakeUserInterface) => user.uid === query.announcementId,
     );
     return user;
   }
@@ -71,3 +70,18 @@ export default function AnnouncementDetail() {
     </AntLayout>
   );
 }
+
+export const getServerSideProps = async (context: any) => {
+  const { announcementId } = context.params;
+
+  if (FakeUsers.find((user) => user.uid === announcementId) === undefined) {
+    return {
+      notFound: true,
+    };
+  }
+  return {
+    props: {
+      announcementId: context.params.announcementId,
+    },
+  };
+};

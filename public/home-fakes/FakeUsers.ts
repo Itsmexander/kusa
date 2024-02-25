@@ -2,6 +2,7 @@ import FakeUserInterface from "./FakeUserInterface";
 
 const FakeUsers: FakeUserInterface[] = [
     {
+      uid: '1',
       email: 'user1@example.com',
       gender: 'female',
       name: {
@@ -21,6 +22,7 @@ const FakeUsers: FakeUserInterface[] = [
       }
     },
     {
+      uid: '2',
       email: 'user2@example.com',
       gender: 'female',
       name: {
@@ -40,6 +42,7 @@ const FakeUsers: FakeUserInterface[] = [
       }
     },
     {
+      uid: '3',
       email: 'user3@example.com',
       gender: 'female',
       name: {
@@ -59,6 +62,7 @@ const FakeUsers: FakeUserInterface[] = [
       }
     },
     {
+      uid: '4',
       email: 'user4@example.com',
       gender: 'female',
       name: {
@@ -78,6 +82,7 @@ const FakeUsers: FakeUserInterface[] = [
       }
     },
     {
+      uid: '5',
       email: 'user5@example.com',
       gender: 'female',
       name: {
