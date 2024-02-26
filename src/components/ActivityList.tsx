@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Avatar, Button, List, message } from "antd";
 import VirtualList from "rc-virtual-list";
 import FakeActivities from "public/home-fakes/FakeActivities";
-import FakeActivityInterface from "public/home-fakes/FakeActivityInterface";
+import FakeActivityInterface from "@/interfaces/FakeActivityInterface";
 import ActivityCard from "./ActivityCard";
 
 const ContainerHeight = 500;

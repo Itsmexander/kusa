@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Avatar, List, message } from "antd";
 import { UserOutlined } from "@ant-design/icons";
-import FakeUserInterface from "public/home-fakes/FakeUserInterface";
-import FakeUsers from "public/home-fakes/FakeUsers";
 import { useRouter } from "next/router";
+import FakeAnnouncementInterface from "@/interfaces/FakeAnnouncementInterface";
+import FakeAnnouncements from "public/home-fakes/FakeAnnouncements";
 
 const App: React.FC = () => {
-  const [data, setData] = useState<FakeUserInterface[]>(FakeUsers);
+  const [data, setData] = useState<FakeAnnouncementInterface[]>(FakeAnnouncements);
   const router = useRouter();
 
   return (
@@ -20,20 +20,20 @@ const App: React.FC = () => {
         dataSource={data}
         renderItem={(item) => (
           <List.Item
-            key={item.uid}
+            key={item.id}
             className="my-3 flex h-fit rounded-lg bg-[#F8F8F8]"
           >
             <div
               className="flex h-[8rem] w-5/6 flex-row gap-3 overflow-hidden px-8 hover:cursor-pointer"
               onClick={() => {
-                router.push(`/${item.uid}`);
+                router.push(`/${item.id}`);
               }}
             >
               <div className="flex justify-center">
-                {item.picture.large != "" ? (
+                {item.user.image != "" ? (
                   <Avatar
                     size={50}
-                    src={item.picture.large}
+                    src={item.user.image}
                     className="border-2 border-primary"
                   />
                 ) : (

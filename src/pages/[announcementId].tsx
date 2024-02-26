@@ -2,22 +2,23 @@ import AntLayout from "@/layouts/AntLayout";
 import { UserOutlined } from "@ant-design/icons";
 import { Avatar } from "antd";
 import { useRouter } from "next/router";
-import FakeUserInterface from "public/home-fakes/FakeUserInterface";
+import FakeAnnouncements from "public/home-fakes/FakeAnnouncements";
 import FakeUsers from "public/home-fakes/FakeUsers";
 import dayjs from "dayjs";
 import "dayjs/locale/th";
+import { FakeUserInterface } from "@/interfaces/FakeUserInterface";
 
 dayjs.locale("th");
 
 export default function AnnouncementDetail() {
   const { query } = useRouter();
-  const user = findUser();
+  const announcement = findAnnouncement();
 
-  function findUser() {
-    const user = FakeUsers.find(
-      (user: FakeUserInterface) => user.uid === query.announcementId,
+  function findAnnouncement() {
+    const announcement = FakeAnnouncements.find(
+      (announcement) => announcement.id === query.announcementId
     );
-    return user;
+    return announcement;
   }
 
   return (
@@ -32,13 +33,13 @@ export default function AnnouncementDetail() {
                 alt=""
                 onClick={() => window.history.back()}
               />
-              <p className="self-center font-bold">{user?.announcement.from}</p>
+              <p className="self-center font-bold">{announcement?.announcement.from}</p>
             </div>
             <div className="mx-3 flex h-full w-fit gap-5">
-              {user?.picture.large != "" ? (
+              {announcement?.user.image != "" ? (
                 <Avatar
                   size={60}
-                  src={user?.picture.large}
+                  src={announcement?.user.image}
                   className="border-2 border-primary"
                 />
               ) : (
@@ -50,11 +51,11 @@ export default function AnnouncementDetail() {
               )}
               <div>
                 <div>
-                  {user?.name.first} {user?.name.last}
+                  {announcement?.user.name}
                 </div>
                 <div className="text-sm text-gray-500 dark:text-gray-400">
-                  {dayjs(user?.announcement.date).format("DD MMMM ")}
-                  {user!?.announcement.date.getFullYear() + 543}
+                  {dayjs(announcement?.announcement.date).format("DD MMMM ")}
+                  {announcement!?.announcement.date.getFullYear() + 543}
                 </div>
               </div>
             </div>
@@ -63,7 +64,7 @@ export default function AnnouncementDetail() {
             <div className="mb-10 flex justify-center">
               <img src="/assets/ku_sd_online.svg" alt="" />
             </div>
-            <div>{user?.announcement.content}</div>
+            <div>{announcement?.announcement.content}</div>
           </div>
         </div>
       </div>
@@ -74,7 +75,7 @@ export default function AnnouncementDetail() {
 export const getServerSideProps = async (context: any) => {
   const { announcementId } = context.params;
 
-  if (FakeUsers.find((user) => user.uid === announcementId) === undefined) {
+  if (FakeAnnouncements.find((announcement) => announcement.id === announcementId) === undefined) {
     return {
       notFound: true,
     };

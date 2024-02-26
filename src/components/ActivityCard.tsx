@@ -1,4 +1,4 @@
-import FakeActivityInterface from "public/home-fakes/FakeActivityInterface";
+import FakeActivityInterface from "@/interfaces/FakeActivityInterface";
 
 const thaiMonthNames = [
   "มค",
