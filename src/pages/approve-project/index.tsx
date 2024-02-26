@@ -60,8 +60,8 @@ export default function index() {
     onSearchtoServer(formValue)
   }
   const onSearchtoServer = async (formValue : formValues)=>{
-    console.log(formValue.date)
-    console.log(formValue.name)
+    // console.log(formValue.date)
+    // console.log(formValue.name)
     //set state for page change same props
     onSetForm({
       name : formValue.name,
@@ -130,7 +130,7 @@ export default function index() {
 
   const onPageChangeToServer = async ( targetPage : number ) => {
     // fetch to target page per page have max 5 pieces
-    console.log(targetPage , formVal.name , formVal.date)
+    // console.log(targetPage , formVal.name , formVal.date)
     // api expect have parameters {formValue.name} , {formValue.date} and {currentPage} return list of data 4 pieces starting at currentPage seem better ui ****
 
     // const response  = await fetch('')
