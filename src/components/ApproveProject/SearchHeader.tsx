@@ -9,7 +9,7 @@ type Props = {
 }
 
 export default function SearchHearder({onSearchHandler}: Props) {
-
+    
     const [formValue,onSetForm] = useState({
       name : '', 
       date : '' 
@@ -24,6 +24,10 @@ export default function SearchHearder({onSearchHandler}: Props) {
                     placeholder="ค้นหา"
                     className="w-full text-lg outline-none border-none bg-transparent"
                     onChange={(e : React.ChangeEvent<HTMLInputElement> )=>{
+                        onSetForm({
+                          ...formValue,
+                          name : e.target.value
+                        })
                         onSearchHandler({
                           ...formValue,
                           name :  e.target.value
@@ -36,6 +40,10 @@ export default function SearchHearder({onSearchHandler}: Props) {
                     className='flex flex-row-reverse w-full text-gray-500 rounded-lg outline-none border-none active:border-none active:shadow-none focus:border-none focus:shadow-none focus:outline-none shadow-sm h-full'
                     placeholder='กรุณาเลือกวันที่'
                     onChange={(e : any)=>{
+                        onSetForm({
+                          ...formValue,
+                          date : e ? e.$d : null
+                        })
                         onSearchHandler({
                           ...formValue,
                           date : e ? e.$d : null

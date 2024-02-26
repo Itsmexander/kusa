@@ -10,8 +10,8 @@ type Props = {
 
 export default function ProjectList({data}: Props) {
   return (
-    <section>
-      <ul>
+    <section className='h-full w-full mt-[1vh]'>
+      <ul className='flex flex-col h-full w-full gap-y-[2vh]'>
         {data.map(( e : ProjectDetails) => { 
           return (
             <li key={e.name}>

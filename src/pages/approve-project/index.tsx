@@ -10,6 +10,7 @@ import SearchHearder from '@/components/ApproveProject/SearchHeader'
 import PageSelecter from '@/components/ApproveProject/Pagination'
 
 export default function index() {
+
   const [currentData,onSetData] = useState({
     data : [
       {
@@ -49,15 +50,23 @@ export default function index() {
     totalPage : 1 ,
   })
 
+  const [formVal,onSetForm] = useState({
+    name : "",
+    date : ""
+  })
+
   //handler call to server expected data at page one back also restate page to 1 
   const onSearchHandler = (formValue : formValues)=>{
-
-    console.log(formValue)
     onSearchtoServer(formValue)
   }
   const onSearchtoServer = async (formValue : formValues)=>{
     console.log(formValue.date)
     console.log(formValue.name)
+    //set state for page change same props
+    onSetForm({
+      name : formValue.name,
+      date : formValue.date
+    }) 
 
     // two case handler fetch process wite date or just value 
     // api expect have parameters {formValue.name} and {formValue.date} return list of data 4 pieces seem better ui ****
@@ -115,12 +124,13 @@ export default function index() {
 
   //handler interact with pagination
   const onPageChangeHandler = (targetPage : number )=>{
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // Scrolls to the top of the page smoothly
     onPageChangeToServer(targetPage)
   }
 
   const onPageChangeToServer = async ( targetPage : number ) => {
     // fetch to target page per page have max 5 pieces
-    
+    console.log(targetPage , formVal.name , formVal.date)
     // api expect have parameters {formValue.name} , {formValue.date} and {currentPage} return list of data 4 pieces starting at currentPage seem better ui ****
 
     // const response  = await fetch('')
@@ -130,7 +140,6 @@ export default function index() {
     // }
     // const result = await response.json()
     // // console.log(result)
-
     const exampledata: ProjectDetails[] = [
       {
         name: "Robotics Competition",
@@ -179,13 +188,13 @@ export default function index() {
     // api return in age amount
     onSetData({
       ...currentData , 
-      totalPage : 9
+      totalPage : 7
     })
   },[])
 
   return (
     <AntLayout>
-      <main className='flex flex-col mx-[15vw] items-center h-[96%]'>
+      <main className='flex flex-col mx-[15vw] items-center h-[95%]'>
         <SearchHearder onSearchHandler={onSearchHandler} />
         <ProjectList data={currentData.data}/> 
       </main>

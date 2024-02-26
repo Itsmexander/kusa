@@ -13,7 +13,7 @@ export default function PageSelecter({onPageChangeHandler , currentPage , totalP
   // const [pageStatus,onSetPage] = useState({
   //   currentPage : 1 ,
   // })
-  
+
   return (
     <section className='mt-[2vh]'>
         <Pagination
@@ -25,6 +25,7 @@ export default function PageSelecter({onPageChangeHandler , currentPage , totalP
           current={currentPage}
           showSizeChanger={false}
           className='text-xl text-black font-semibold'
+          //custom other prev/next btn or number btn
         />
     </section>
   )
