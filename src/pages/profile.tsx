@@ -1,15 +1,17 @@
 import AntLayout from "@/layouts/AntLayout";
-import React from "react";
+import React, { useState } from "react";
 import { signIn, useSession } from "next-auth/react";
 import FakeUsers from "public/home-fakes/FakeUsers";
 import { Avatar } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { FakeUserInterface } from "@/interfaces/FakeUserInterface";
+import axios from "axios";
 
 export default function user() {
   const { data: session } = useSession();
 
   const user = findUser();
+  const [file, setFile] = useState(null);
 
   function findUser() {
     const user = FakeUsers.find(
@@ -17,6 +19,31 @@ export default function user() {
     );
     return user;
   }
+
+  const handleFileChange = (e: any) => {
+    const file = e.target.files![0];
+    if (file && file.type.startsWith('image/')) {
+      console.log(file);
+    } else {
+      alert('Please select a valid image file.');
+    }
+
+    setFile(file);
+    handleUpload(file);
+  };
+
+  const handleUpload = async (selectedFile: File | null) => {
+    try {
+      if (!selectedFile) return; // Handle case when no file is selected
+      const formData = new FormData();
+      formData.append('file', selectedFile);
+      await axios.post('/api/upload', formData);
+      console.log('File uploaded successfully');
+    } catch (error) {
+      console.error('Error uploading file:', error);
+    }
+  };
+  
 
   const firstname = user?.name?.split(" ")[0] ?? "";
   const lastname = user?.name?.split(" ")[1] ?? "";
@@ -66,12 +93,8 @@ export default function user() {
                 type="file"
                 style={{ display: "none" }}
                 onChange={(e) => {
-                  const file = e.target.files![0];
-                  if (file && file.type.startsWith('image/')) {
-                    console.log(file);
-                  } else {
-                    alert('Please select a valid image file.');
-                  }
+                  handleFileChange(e);
+                  
                 }}
               />
             </div>
