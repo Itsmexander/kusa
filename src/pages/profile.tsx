@@ -53,9 +53,27 @@ export default function user() {
             </div>
           </div>
           <div className="flex h-full w-full items-center justify-center">
-            <div className="flex h-5/6 w-2/4 flex-col items-center justify-center bg-[#FAFAFA]">
+            <div
+              className="flex h-5/6 w-2/4 cursor-pointer select-none flex-col items-center justify-center bg-[#FAFAFA]"
+              onClick={() => {
+                document.getElementById("fileInput")!.click();
+              }}
+            >
               <p className="text-4xl">+</p>
               <p className="text-[#00000073]">อัพโหลดลายเซ็นอิเล็กทรอนิกส์</p>
+              <input
+                id="fileInput"
+                type="file"
+                style={{ display: "none" }}
+                onChange={(e) => {
+                  const file = e.target.files![0];
+                  if (file && file.type.startsWith('image/')) {
+                    console.log(file);
+                  } else {
+                    alert('Please select a valid image file.');
+                  }
+                }}
+              />
             </div>
           </div>
         </div>

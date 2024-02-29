@@ -18,7 +18,7 @@ const FakeUsers: FakeUserInterface[] = Array(10).fill(0).map((_, i) => {
         id: i.toString(),
         email: `ddd${i}@ku.th`,
         name: 'teerut sritongdee',
-        image: 'https://m.media-amazon.com/images/I/51aF0z7-V3L._AC_UF894,1000_QL80_.jpg',
+        image: ''
     });
 })
 

@@ -71,7 +71,6 @@ export const authOptions: NextAuthOptions = {
             id: "1",
             name: "test",
             email: "ddd1@ku.th",
-
           };
 
           return user;

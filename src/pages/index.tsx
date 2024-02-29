@@ -1,24 +1,20 @@
 import AntLayout from "@/layouts/AntLayout";
 import Carousel from "@/components/Carousel";
 import ActivitySchedule from "@/components/ActivitySchedule";
-import Announcement from "@/components/Announcement"
+import Announcement from "@/components/Announcement";
 
 export default function Home() {
-
-    return (
-        <AntLayout>
-            <div className="flex flex-col gap-3 h-full">
-                <div className="w-full h-fit">
-                    <Carousel />
-                </div>
-                <div className="grid grid-cols-3 gap-5">
-                    <ActivitySchedule />
-                    <Announcement />
-                </div>
-                {/* <div className="flex flex-col md:flex-row min-h-[45rem] h-full w-full gap-5 ">
-                    
-                </div> */}
-            </div>
-        </AntLayout>
-    );
+  return (
+    <AntLayout>
+      <div className="flex h-full flex-col gap-3">
+        <div className="z-0 h-fit w-full">
+          <Carousel />
+        </div>
+        <div className="grid grid-cols-3 gap-5">
+          <ActivitySchedule />
+          <Announcement />
+        </div>
+      </div>
+    </AntLayout>
+  );
 }

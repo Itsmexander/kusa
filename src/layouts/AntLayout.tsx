@@ -102,7 +102,7 @@ const AntLayout: NextPage<Props> = ({ children }) => {
   const isCurrentPage = (key: string) => pathname === key;
 
   return (
-    <Layout className="relative flex min-h-screen w-screen flex-row bg-bg-base">
+    <Layout className="relative flex min-h-screen flex-row bg-bg-base">
       <div className="fixed bottom-0 top-0 z-20 flex w-[15rem] flex-col gap-3 bg-white px-3 pt-5">
         <div>
           <img src="/assets/logo.svg" alt="" />
