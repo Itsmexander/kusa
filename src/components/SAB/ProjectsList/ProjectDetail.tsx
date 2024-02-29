@@ -14,7 +14,6 @@ export default function ProductDetail({details}: Props) {
     const onDownload = (e : any)=>{
         e.preventDefault()
         console.log("export",details)
-        
     }
   return (
     <div className='flex bg-secondary rounded-lg shadow-sm'>
