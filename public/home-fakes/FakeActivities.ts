@@ -1,4 +1,4 @@
-import FakeActivityInterface from "./FakeActivityInterface";
+import FakeActivityInterface from "../../src/interfaces/FakeActivityInterface";
 
 const FakeActivities: FakeActivityInterface[] = [
     {

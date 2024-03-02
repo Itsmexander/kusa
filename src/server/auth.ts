@@ -70,8 +70,7 @@ export const authOptions: NextAuthOptions = {
           const user:User = {
             id: "1",
             name: "test",
-            email: "",
-
+            email: "ddd1@ku.th",
           };
 
           return user;

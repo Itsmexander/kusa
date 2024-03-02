@@ -1,107 +1,25 @@
-import FakeUserInterface from "./FakeUserInterface";
+import { FakeUserInterface } from "../../src/interfaces/FakeUserInterface";
 
-const FakeUsers: FakeUserInterface[] = [
-    {
-      uid: '1',
-      email: 'user1@example.com',
-      gender: 'female',
-      name: {
-        first: 'Alice',
-        last: 'Johnson',
-        title: 'Mr',
-      },
-      picture: {
-        large: '',
-        medium: '',
-        thumbnail: '',
-      },
-      announcement: {
-        from: 'กองพัฒนานิสิต มหาวิทยาลัยเกษตรศาสตร์',
-        date: new Date(2022, 10, 24),
-        content: 'KU Hackathon เป็นงานแข่งขันที่จัดขึ้นโดยมหาวิทยาลัยเกษตรศาสตร์ (Kasetsart University) โดยงานนี้เป็นมหกรรมที่เน้นการพัฒนาและใช้เทคโนโลยีในการแก้ไขปัญหาต่าง ๆ  ที่เกิดขึ้นในมหาวิทยาลัย ...',
-      }
-    },
-    {
-      uid: '2',
-      email: 'user2@example.com',
-      gender: 'female',
-      name: {
-        first: 'Power',
-        last: 'Sritongdee',
-        title: 'Ms',
-      },
-      picture: {
-        large: 'https://m.media-amazon.com/images/I/51aF0z7-V3L._AC_UF894,1000_QL80_.jpg',
-        medium: '',
-        thumbnail: '',
-      },
-      announcement: {
-        from: 'Power',
-        date: new Date(2022, 10, 23),
-        content: 'skibidi dop dop',
-      }
-    },
-    {
-      uid: '3',
-      email: 'user3@example.com',
-      gender: 'female',
-      name: {
-        first: 'Alice',
-        last: 'Johnson',
-        title: 'Mr',
-      },
-      picture: {
-        large: '',
-        medium: '',
-        thumbnail: '',
-      },
-      announcement: {
-        from: 'กองพัฒนานิสิต มหาวิทยาลัยเกษตรศาสตร์',
-        date: new Date(2022, 10, 24),
-        content: 'คอปเตอร์ป๋อหลอเลกเชอร์บัสไฮเทค แคมป์เทคโนแครตปาร์ตี้บุญคุณ ฟรังก์ไฮบริด ห่วยวิป ปาสเตอร์โปรโมทพันธุวิศวกรรมกีวี โพสต์ดีลเลอร์ พล็อตหมวยแกสโซฮอล์ นางแบบสไลด์ฮิปฮอปโรแมนติก คอนแทคชีสเบนโตะลอจิสติกส์พงษ์ แฟรีซังเตเธคยะเยือกช็อค โก๊ะบรรพชนเลกเชอร์เฮียแกสโซฮอล์ วาริชศาสตร์แรลลี่เท็กซ์ซาดิสต์โปสเตอร์ ชัวร์ปฏิสัมพันธ์ซาดิสต์ โอยัวะบุ๋นแอดมิสชันด็อกเตอร์ ราเมนจิตพิสัย สโลว์แอโรบิคคีตราชันเคลียร์แทงกั๊กคอปเตอร์ป๋อหลอเลกเชอร์บัสไฮเทค แคมป์เทคโนแครตปาร์ตี้บุญคุณ ฟรังก์ไฮบริด ห่วยวิป ปาสเตอร์โปรโมทพันธุวิศวกรรมกีวี โพสต์ดีลเลอร์ พล็อตหมวยแกสโซฮอล์ นางแบบสไลด์ฮิปฮอปโรแมนติก คอนแทคชีสเบนโตะลอจิสติกส์พงษ์ แฟรีซังเตเธคยะเยือกช็อค โก๊ะบรรพชนเลกเชอร์เฮียแกสโซฮอล์ วาริชศาสตร์แรลลี่เท็กซ์ซาดิสต์โปสเตอร์ ชัวร์ปฏิสัมพันธ์ซาดิสต์ โอยัวะบุ๋นแอดมิสชันด็อกเตอร์ ราเมนจิตพิสัย สโลว์แอโรบิคคีตราชันเคลียร์แทงกั๊กคอปเตอร์ป๋อหลอเลกเชอร์บัสไฮเทค แคมป์เทคโนแครตปาร์ตี้บุญคุณ ฟรังก์ไฮบริด ห่วยวิป ปาสเตอร์โปรโมทพันธุวิศวกรรมกีวี โพสต์ดีลเลอร์ พล็อตหมวยแกสโซฮอล์ นางแบบสไลด์ฮิปฮอปโรแมนติก คอนแทคชีสเบนโตะลอจิสติกส์พงษ์ แฟรีซังเตเธคยะเยือกช็อค โก๊ะบรรพชนเลกเชอร์เฮียแกสโซฮอล์ วาริชศาสตร์แรลลี่เท็กซ์ซาดิสต์โปสเตอร์ ชัวร์ปฏิสัมพันธ์ซาดิสต์ โอยัวะบุ๋นแอดมิสชันด็อกเตอร์ ราเมนจิตพิสัย สโลว์แอโรบิคคีตราชันเคลียร์แทงกั๊กคอปเตอร์ป๋อหลอเลกเชอร์บัสไฮเทค แคมป์เทคโนแครตปาร์ตี้บุญคุณ ฟรังก์ไฮบริด ห่วยวิป ปาสเตอร์โปรโมทพันธุวิศวกรรมกีวี โพสต์ดีลเลอร์ พล็อตหมวยแกสโซฮอล์ นางแบบสไลด์ฮิปฮอปโรแมนติก คอนแทคชีสเบนโตะลอจิสติกส์พงษ์ แฟรีซังเตเธคยะเยือกช็อค โก๊ะบรรพชนเลกเชอร์เฮียแกสโซฮอล์ วาริชศาสตร์แรลลี่เท็กซ์ซาดิสต์โปสเตอร์ ชัวร์ปฏิสัมพันธ์ซาดิสต์ โอยัวะบุ๋นแอดมิสชันด็อกเตอร์ ราเมนจิตพิสัย สโลว์แอโรบิคคีตราชันเคลียร์แทงกั๊ก',
-      }
-    },
-    {
-      uid: '4',
-      email: 'user4@example.com',
-      gender: 'female',
-      name: {
-        first: 'Power',
-        last: 'Sritongdee',
-        title: 'Ms',
-      },
-      picture: {
-        large: 'https://m.media-amazon.com/images/I/51aF0z7-V3L._AC_UF894,1000_QL80_.jpg',
-        medium: '',
-        thumbnail: '',
-      },
-      announcement: {
-        from: 'Power',
-        date: new Date(2022, 10, 23),
-        content: 'skibidi dop dop',
-      }
-    },
-    {
-      uid: '5',
-      email: 'user5@example.com',
-      gender: 'female',
-      name: {
-        first: 'Alice',
-        last: 'Johnson',
-        title: 'Mr',
-      },
-      picture: {
-        large: '',
-        medium: '',
-        thumbnail: '',
-      },
-      announcement: {
-        from: 'กองพัฒนานิสิต มหาวิทยาลัยเกษตรศาสตร์',
-        date: new Date(2022, 10, 24),
-        content: 'KU Hackathon เป็นงานแข่งขันที่จัดขึ้นโดยมหาวิทยาลัยเกษตรศาสตร์ (Kasetsart University) โดยงานนี้เป็นมหกรรมที่เน้นการพัฒนาและใช้เทคโนโลยีในการแก้ไขปัญหาต่าง ๆ  ที่เกิดขึ้นในมหาวิทยาลัย ...',
-      }
-    },
-    
-  ];
+type FakeUserWithoutEmail = Omit<FakeUserInterface, 'emailVerified'>
+
+export const newUser = ({id, email, name, image}: FakeUserWithoutEmail) => {
+    return {
+        id,
+        email,
+        name,
+        image,
+        emailVerified: new Date(2022, 10, 23)
+    }
+}
+
+
+const FakeUsers: FakeUserInterface[] = Array(10).fill(0).map((_, i) => {
+    return newUser({
+        id: i.toString(),
+        email: `ddd${i}@ku.th`,
+        name: 'teerut sritongdee',
+        image: ''
+    });
+})
 
 export default FakeUsers
