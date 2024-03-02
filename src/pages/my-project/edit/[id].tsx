@@ -1,14 +1,14 @@
 import AntLayout from '@/layouts/AntLayout'
 import { NextPage } from 'next'
 
-interface Props { }
+interface Props {}
 
-const Dashboard: NextPage<Props> = () => {
+const EditProject: NextPage<Props> = () => {
     return (
         <AntLayout>
-            asdf
+            EditProject
         </AntLayout>
     )
 }
 
-export default Dashboard
+export default EditProject

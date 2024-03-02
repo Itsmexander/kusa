@@ -6,7 +6,7 @@ interface Props { }
 const Approve: NextPage<Props> = () => {
     return (
         <AntLayout>
-            asdf
+            approve
         </AntLayout>
     )
 }
