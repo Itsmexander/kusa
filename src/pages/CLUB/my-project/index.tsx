@@ -4,6 +4,7 @@ import { Input, Select, Table, Tag } from "antd";
 import { AlertTriangleIcon, CheckIcon, CompassIcon, InfoIcon, PencilIcon } from "lucide-react";
 import AntLayout from "@/layouts/AntLayout";
 import { useState } from "react";
+import CLUBLayout from "@/layouts/CLUBLayout";
 
 enum Status {
     Success = "สำเร็จ",
@@ -57,7 +58,7 @@ export default function Dashboard() {
     //   );
 
     return (
-        <AntLayout>
+        <>
             <div className="flex flex-col gap-3">
                 <div className="gap-5 grid grid-cols-3">
                     <div className="py-5 w-full bg-rose-50 justify-center rounded-2xl border border-rose-600 flex items-center gap-5" >
@@ -211,6 +212,6 @@ export default function Dashboard() {
                 </div>
             </div>
 
-        </AntLayout>
+        </>
     );
 }

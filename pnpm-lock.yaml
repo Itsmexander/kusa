@@ -48,7 +48,7 @@ dependencies:
     specifier: ^4.4.0
     version: 4.4.1
   clsx:
-    specifier: ^2.0.0
+    specifier: ^2.1.0
     version: 2.1.0
   dayjs:
     specifier: ^1.11.10

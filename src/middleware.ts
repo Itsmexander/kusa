@@ -1,25 +1,38 @@
-import { getToken } from "next-auth/jwt";
 import { withAuth } from "next-auth/middleware";
-import { NextRequest, NextResponse } from "next/server";
-import { db } from "./server/db";
+import { NextResponse } from "next/server";
+
+
+
+const urlRoleCanAccess = [
+  {
+    startPath: "/CLUB",
+    role: ["CLUB","SAB","SC","SD"],
+  },
+  {
+    startPath: "/SAB",
+    role: ["CLUB","SAB","SC","SD"],
+  },
+  {
+    startPath: "/SC",
+    role: ["CLUB","SAB","SC","SD"],
+  },
+  {
+    startPath: "/SD",
+    role: ["CLUB","SAB","SC","SD"],
+  },
+];
 
 export default withAuth(
   async function middleware(req) {
-    // if (req.nextauth.token && req.nextUrl.pathname.startsWith("/staff")) {
+    for (const url of urlRoleCanAccess) {
+      if (req.nextUrl.pathname.startsWith(url.startPath)) {
+        if (url.role.includes(req.nextauth.token?.role ?? "")) {
+          return NextResponse.next();
+        }
+      }
+    }
 
-    //   if (isStaff) {
-    //     return NextResponse.next();
-    //   } else {
-    //     return NextResponse.rewrite(new URL("/404", req.nextUrl));
-    //   }
-
-    //   const token = await getToken({ req, secret: process.env.SECRET });
-    //   if (token?.email === "teerut.sr@ku.th") {
-    //     return NextResponse.next();
-    //   }
-    //   return NextResponse.rewrite(new URL("/404", req.url));
-    return NextResponse.next();
-    // }
+    return NextResponse.redirect(new URL("/404", req.url));
   },
   {
     callbacks: {
@@ -35,7 +48,13 @@ export default withAuth(
 
 export const config = {
   matcher: [
-    "/",
-    "/((?!api|sign-in|error|_next/static|assets|fonts|_next/image|favicon.ico).*)",
+    "/CLUB",
+    "/SAB",
+    "/SC",
+    "/SD",
+    "/CLUB/:path*",
+    "/SAB/:path*",
+    "/SC/:path*",
+    "/SD/:path*",
   ],
 };

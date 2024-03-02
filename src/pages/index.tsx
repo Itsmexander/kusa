@@ -5,7 +5,6 @@ import Announcement from "@/components/Announcement";
 
 export default function Home() {
   return (
-    <AntLayout>
       <div className="flex h-full flex-col gap-3">
         <div className="z-0 h-fit w-full">
           <Carousel />
@@ -15,6 +14,5 @@ export default function Home() {
           <Announcement />
         </div>
       </div>
-    </AntLayout>
   );
 }

@@ -17,28 +17,34 @@ const SCLayout: NextPage<Props> = ({ children }) => {
 
     const items: MenuInterface[] = [
         {
-            key: prefix + '/',
+            key: prefix,
             icon: <HomeIcon size={15} />,
             label: 'หน้าแรก',
-            onClick: () => push('/'),
+            onClick: () => push(prefix),
         },
         {
             key: prefix + '/calendar',
             icon: <CalendarDaysIcon size={15} />,
             label: 'ปฏิทิน',
-            onClick: () => push('/calendar'),
+            onClick: () => push(prefix + '/calendar'),
+        },
+        {
+            key: prefix + '/my-project',
+            icon: <SendIcon size={15} />,
+            label: 'โครงการของฉัน',
+            onClick: () => push(prefix + '/my-project'),
         },
         {
             key: prefix + '/approve-project',
             icon: <ListChecksIcon size={15} />,
             label: 'อนุมัติโครงการ',
-            onClick: () => push('/approve-project'),
+            onClick: () => push(prefix + '/approve-project'),
         },
         {
-            key: '/profile',
+            key: prefix + '/profile',
             icon: <UserIcon size={15} />,
             label: 'หน้าโปรไฟล์',
-            onClick: () => push('/profile'),
+            onClick: () => push(prefix + '/profile'),
         },
     ]
 
@@ -50,6 +56,7 @@ const SCLayout: NextPage<Props> = ({ children }) => {
             <div className='flex flex-col gap-3 bg-white w-[15rem] px-3 pt-5 fixed top-0 bottom-0 z-20'>
                 <div>
                     <img src="/assets/logo.svg" alt="" />
+                    <div className='bg-primary text-white px-2 w-fit rounded-xl'>สำหรับ สภาผู้แทนนิสิต</div>
                 </div>
                 <div className='flex flex-col gap-2'>
                     {items.map((item, id) => isCurrentPage(item.key) ? (
@@ -61,7 +68,7 @@ const SCLayout: NextPage<Props> = ({ children }) => {
                         <a key={id} href={item.key}
                             onClick={(e) => {
                                 e.preventDefault()
-                                push(item.key)
+                                item.onClick()
                             }}
                             className='bg-white border-primary text-2xl hover:text-primary border border-inn text-primary rounded-lg flex justify-start items-center px-2 gap-2'>
                             {item.icon}
@@ -70,7 +77,7 @@ const SCLayout: NextPage<Props> = ({ children }) => {
                 </div>
             </div>
             <HeaderComponent itemSelected={itemSelected as MenuInterface} />
-            <div className='flex flex-col w-full ml-[15rem] mt-[3.5rem] overflow-hidden'>
+            <div className='flex flex-col w-full ml-[15rem] mt-[4.5rem] overflow-hidden'>
                 <div className='p-3 text-2xl h-full'>
                     {children}
                 </div>
