@@ -10,7 +10,7 @@ import SearchHearder from '@/components/SAB/ProjectsList/SearchHeader'
 import PageSelecter from '@/components/SAB/ProjectsList/Pagination'
 import BudgetBoard from '@/components/SAB/dashboard/dashboard'
 
-export default function index() {
+export default function Index() {
 
   const [currentData,onSetData] = useState({
     data : [
