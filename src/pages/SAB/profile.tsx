@@ -1,7 +1,6 @@
 import AntLayout from "@/layouts/AntLayout";
 import React, { useState } from "react";
 import { signIn, useSession } from "next-auth/react";
-import FakeUsers from "public/home-fakes/FakeUsers";
 import { Avatar } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { FakeUserInterface } from "@/interfaces/FakeUserInterface";
@@ -10,15 +9,8 @@ import axios from "axios";
 export default function User() {
   const { data: session } = useSession();
 
-  const user = findUser();
+  const user = session?.user as FakeUserInterface;
   const [file, setFile] = useState(null);
-
-  function findUser() {
-    const user = FakeUsers.find(
-      (user: FakeUserInterface) => user.email === session?.user.email,
-    );
-    return user;
-  }
 
   const handleFileChange = (e: any) => {
     const file = e.target.files![0];
