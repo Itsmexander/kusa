@@ -8,7 +8,7 @@ WORKDIR /app
 
 COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml\* ./
 
-RUN then yarn global add pnpm && pnpm i
+RUN yarn global add pnpm && pnpm i
 
 ##### BUILDER
 
@@ -21,7 +21,7 @@ COPY . .
 
 # ENV NEXT_TELEMETRY_DISABLED 1
 
-RUN then yarn global add pnpm && SKIP_ENV_VALIDATION=1 pnpm run build
+RUN yarn global add pnpm && SKIP_ENV_VALIDATION=1 pnpm run build
 
 ##### RUNNER
 
