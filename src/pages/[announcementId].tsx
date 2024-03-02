@@ -22,7 +22,6 @@ export default function AnnouncementDetail() {
   }
 
   return (
-    <AntLayout>
       <div className="flex h-full flex-col gap-3 p-10">
         <div className="flex h-auto min-h-full w-full flex-col rounded-lg bg-white">
           <div className="text-bold flex h-fit w-full flex-row items-center justify-between rounded-lg bg-primary p-5 px-20 text-white">
@@ -68,7 +67,6 @@ export default function AnnouncementDetail() {
           </div>
         </div>
       </div>
-    </AntLayout>
   );
 }
 

@@ -1,13 +1,12 @@
-import AntLayout from '@/layouts/AntLayout'
 import { NextPage } from 'next'
 
 interface Props { }
 
 const Approve: NextPage<Props> = () => {
     return (
-        <AntLayout>
+        <div>
             approve
-        </AntLayout>
+        </div>
     )
 }
 

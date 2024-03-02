@@ -5,11 +5,9 @@ import AntLayout from '@/layouts/AntLayout'
 import ProjectDetails from '@/interfaces/ProjectDetails'
 import formValues from '@/interfaces/FormValues'
 
-import ProjectList from '@/components/SAB/ProjectsList/ProjectList'
-import SearchHearder from '@/components/SAB/ProjectsList/SearchHeader'
-import PageSelecter from '@/components/SAB/ProjectsList/Pagination'
-import BudgetBoard from '@/components/SAB/dashboard/dashboard'
-import SABLayout from '@/layouts/SABLayout'
+import ProjectList from '@/components/ApproveProject/ProjectsList/ProjectList'
+import SearchHearder from '@/components/ApproveProject/SearchHeader'
+import PageSelecter from '@/components/ApproveProject/Pagination'
 
 export default function Index() {
 
@@ -196,20 +194,13 @@ export default function Index() {
 
   return (
     <>
-      <main className='flex flex-row h-[95%]  justify-between gap-x-[2vw] mr-[3vw] ml-[2vw]'>
-        <section  className='w-4/12'>
-          <BudgetBoard/>
-        </section>
-        <section className='flex flex-col items-center w-8/12'>
-          <SearchHearder onSearchHandler={onSearchHandler} />
-          <ProjectList data={currentData.data}/> 
-          <footer className='flex items-center justify-center'>
-            <PageSelecter onPageChangeHandler={onPageChangeHandler} currentPage={currentData.currentPage} totalPage={currentData.totalPage}/>        
-          </footer>                
-        </section>
-    
+      <main className='flex flex-col items-center'>
+        <SearchHearder onSearchHandler={onSearchHandler} />
+        <ProjectList data={currentData.data}/> 
       </main>
-     
+      <footer className='flex items-center justify-center'>
+        <PageSelecter onPageChangeHandler={onPageChangeHandler} currentPage={currentData.currentPage} totalPage={currentData.totalPage}/>        
+      </footer>         
     </>
   )
 }

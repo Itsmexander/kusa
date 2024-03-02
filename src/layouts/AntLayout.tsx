@@ -52,12 +52,12 @@ const AntLayout: NextPage<Props> = ({ children }) => {
       label: "ปฏิทิน",
       onClick: () => push("/calendar"),
     },
-    {
-      key: "/my-project",
-      icon: <SendIcon size={15} />,
-      label: "โครงการของฉัน",
-      onClick: () => push("/my-project"),
-    },
+    // {
+    //   key: "/my-project",
+    //   icon: <SendIcon size={15} />,
+    //   label: "โครงการของฉัน",
+    //   onClick: () => push("/my-project"),
+    // },
     // {
     //     key: '/dashboard',
     //     icon: <PieChartIcon size={15} />,
@@ -70,24 +70,24 @@ const AntLayout: NextPage<Props> = ({ children }) => {
     //     label: 'อนุมัติโครงการ',
     //     onClick: () => push('/approve'),
     // },
-    {
-      key: "/approve-project",
-      icon: <ListChecksIcon size={15} />,
-      label: "โครงการที่ได้รับอนุมัติ",
-      onClick: () => push("/approve-project"),
-    },
-    {
-      key: "/profile",
-      icon: <UserIcon size={15} />,
-      label: "หน้าโปรไฟล์",
-      onClick: () => push("/profile"),
-    },
-    {
-      key: "/statistics",
-      icon: <AreaChartIcon size={15} />,
-      label: "สถิติ",
-      onClick: () => push("/statistics"),
-    },
+    // {
+    //   key: "/approve-project",
+    //   icon: <ListChecksIcon size={15} />,
+    //   label: "โครงการที่ได้รับอนุมัติ",
+    //   onClick: () => push("/approve-project"),
+    // },
+    // {
+    //   key: "/profile",
+    //   icon: <UserIcon size={15} />,
+    //   label: "หน้าโปรไฟล์",
+    //   onClick: () => push("/profile"),
+    // },
+    // {
+    //   key: "/statistics",
+    //   icon: <AreaChartIcon size={15} />,
+    //   label: "สถิติ",
+    //   onClick: () => push("/statistics"),
+    // },
     // {
     //     key: '/budget',
     //     icon: <SearchIcon size={15} />,

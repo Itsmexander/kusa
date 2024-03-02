@@ -1,16 +1,14 @@
-import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { type GetServerSidePropsContext } from "next";
 import {
-    User,
+  User,
   getServerSession,
   type DefaultSession,
   type NextAuthOptions,
 } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
-import { env } from "@/env.mjs";
-import { db } from "@/server/db";
 import { Role } from "@/interfaces/Role";
+import { DefaultJWT } from "next-auth/jwt";
 
 /**
  * Module augmentation for `next-auth` types. Allows us to add custom properties to the `session`
@@ -22,16 +20,23 @@ declare module "next-auth" {
   interface Session extends DefaultSession {
     user: DefaultSession["user"] & {
       id: string;
-      role: Role
+      role: Role;
       // ...other properties
       // role: UserRole;
     };
   }
 
-  // interface User {
-  //   // ...other properties
-  //   // role: UserRole;
-  // }
+  interface User {
+    id: string;
+    role: Role;
+  }
+}
+
+declare module "next-auth/jwt" {
+  interface JWT extends DefaultJWT{
+    id: string;
+    role: Role;
+  }
 }
 
 /**
@@ -40,13 +45,27 @@ declare module "next-auth" {
  * @see https://next-auth.js.org/configuration/options
  */
 export const authOptions: NextAuthOptions = {
+  session: {
+    strategy: "jwt",
+  },
   pages: {
     signIn: "/sign-in",
   },
   callbacks: {
-    session: ({ session, user }) => ({
-      ...session,
-    }),
+    session: ({ session, user,token }) => {
+      if (session.user) {
+        session.user.role = token.role;
+      }
+      
+      return session;
+    },
+    jwt: ({ token, user }) => {
+      if (user) {
+        token.id = user.id;
+        token.role = user.role;
+      }
+      return token;
+    },
   },
   providers: [
     CredentialsProvider({
@@ -65,12 +84,12 @@ export const authOptions: NextAuthOptions = {
       },
       async authorize(credentials, req) {
         try {
-          console.log(credentials);
-
-          const user:User = {
+          const user: User = {
             id: "1",
             name: "test",
             email: "ddd1@ku.th",
+            role: "CLUB",
+            image: "https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50",
           };
 
           return user;

@@ -7,7 +7,7 @@ interface Props { }
 
 const _1: NextPage<Props> = () => {
     return (
-        <AntLayout>
+        <>
             <Form className="m-5 grid">
                 <FormGenerator type={"text"} title={"ชื่อองค์กรกิจกรรมนิสิต"} />
                 <FormGenerator type={"text"} title={"ที่ออกหนังสือ"} />
@@ -22,7 +22,7 @@ const _1: NextPage<Props> = () => {
                 <FormGenerator type={"text"} title={"ผู้ยืมเงิน"} />
                 <FormGenerator type={"upload"} title={"Upload"} file_type={".pdf"} />
             </Form>
-        </AntLayout>
+        </>
     )
 }
 

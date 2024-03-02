@@ -8,6 +8,7 @@ import formValues from '@/interfaces/FormValues'
 import ProjectList from '@/components/ApproveProject/ProjectsList/ProjectList'
 import SearchHearder from '@/components/ApproveProject/SearchHeader'
 import PageSelecter from '@/components/ApproveProject/Pagination'
+import CLUBLayout from '@/layouts/CLUBLayout'
 
 export default function Index() {
 
@@ -193,14 +194,14 @@ export default function Index() {
   },[])
 
   return (
-    <AntLayout>
-      <main className='flex flex-col mx-[15vw] items-center h-[95%]'>
+    <>
+      <main className='flex flex-col items-center'>
         <SearchHearder onSearchHandler={onSearchHandler} />
         <ProjectList data={currentData.data}/> 
       </main>
       <footer className='flex items-center justify-center'>
         <PageSelecter onPageChangeHandler={onPageChangeHandler} currentPage={currentData.currentPage} totalPage={currentData.totalPage}/>        
       </footer>         
-    </AntLayout>
+    </>
   )
 }

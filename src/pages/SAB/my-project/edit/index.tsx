@@ -45,7 +45,7 @@ export default function NextPage() {
     }
 
     return (
-        <AntLayout>
+        <>
             <div className="flex flex-col p-20 ">
                 <div className="flex flex-col bg-white border-2 border-teal-700 shadow-lg rounded-xl py-5 px-20">
                     <div className="flex flex-row w-full items-center mb-5">
@@ -160,6 +160,6 @@ export default function NextPage() {
                     </form>
                 </div>
             </div>
-        </AntLayout>
+        </>
     );
 }

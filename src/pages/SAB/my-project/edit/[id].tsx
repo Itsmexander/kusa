@@ -5,9 +5,9 @@ interface Props {}
 
 const EditProject: NextPage<Props> = () => {
     return (
-        <AntLayout>
+        <>
             EditProject
-        </AntLayout>
+        </>
     )
 }
 
