@@ -9,7 +9,7 @@ import ProjectList from '@/components/ApproveProject/ProjectsList/ProjectList'
 import SearchHearder from '@/components/ApproveProject/SearchHeader'
 import PageSelecter from '@/components/ApproveProject/Pagination'
 
-export default function index() {
+export default function Index() {
 
   const [currentData,onSetData] = useState({
     data : [

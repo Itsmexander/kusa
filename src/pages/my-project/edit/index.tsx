@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { projectForm } from "@/interfaces/inputFormProject";
+// import { projectForm } from "@/interfaces/inputFormProject";
 
 import AntLayout from "@/layouts/AntLayout";
 import { FiCalendar } from "react-icons/fi";
@@ -10,7 +10,7 @@ import { DatePicker, Input } from "antd";
 
 
 export default function NextPage() {
-    const [formData , setFormData] = useState<projectForm>({
+    const [formData , setFormData] = useState<any>({
         name : "",
         bookNumber : "" , 
         bookDate : "" , 

@@ -7,7 +7,7 @@ import { UserOutlined } from "@ant-design/icons";
 import { FakeUserInterface } from "@/interfaces/FakeUserInterface";
 import axios from "axios";
 
-export default function user() {
+export default function User() {
   const { data: session } = useSession();
 
   const user = findUser();

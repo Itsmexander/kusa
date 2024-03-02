@@ -38,7 +38,6 @@ const data = [
 const Chart = dynamic(() => import('@/components/Chart'), { ssr: false })
 
 export default function Dashboard() {
-    const hello = api.example.hello.useQuery({ text: "from tRPC" });
     const [dataSource, setDataSource] = useState(data);
     const [value, setValue] = useState('');
 
